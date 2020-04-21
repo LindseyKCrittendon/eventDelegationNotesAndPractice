@@ -84,5 +84,49 @@ document.querySelector("#projects-btn").addEventListener("click", function(){
 // You should only have one HTML document.
 //done!
 // In the "Contact Me" section, the user should see a form with two inputs: one for the user's name and one for their message. They should also see a button that says "Send".
+document.querySelector("#contact-btn").addEventListener("click", function(){
+    // Print the heading and build the form
+    const pageContentContainer = document.querySelector("#page-content");
+    pageContentContainer.innerHTML = `<h1>Contact Me</h1>`;
+    pageContentContainer.innerHTML += buildContactForm();
+})
 
 // When the user clicks the "Send" button, the message inputs should clear and they should see a confirmation message below the form that says "Your message has been sent"
+
+document.querySelector("#page-content").addEventListener("click", function(){
+    if(event.target.id === "new-contact-submit-btn"){
+        console.log("You clicked on the send button")
+        // const contactValue = document.querySelector("#new-contact-input").value
+        // Print 'your message has been sent' to the DOM
+        document.querySelector("#page-content").innerHTML += `<h4>Your message has been sent</h4>`
+    }
+})
+//how I had it; long way
+  //     <h1>Contact Me</h1><form>
+    //     <input id="new-contact-input" type="text" placeholder="Name" />
+    //     <input id="new-contact-input" type="text" placeholder="Message" />
+    //     </form>
+    // <button id="new-contact-submit-btn">Send</button>
+
+
+// Challenge: Dynamic Cards
+// The learning objective for this challenge is to practice event listeners for click events. You will also practice adding elements to the DOM, and removing elements from the DOM with the removeChild() method. You will even need to use the split() method on a string.
+
+// Setup
+// Use the basicProj command to create a new project with an index.html file, a script file, and a CSS sheet.
+
+// Requirements
+// Create an HTML page that contains a text area and a button labeled Create.
+// When the user enters in text into the text area and then clicks the create button, create a new DOM component that has a border, and includes it's own delete button.
+// Insert that new component into the DOM.
+// When the user clicks the Delete button, the containing card, and no other cards, should then be removed from the DOM. Not just made invisible, actually removed from the DOM.
+// Pro tip: The card's id attribute, and the button's id attribute should share some common value. Then, when the button is clicked, find the corresponding parent DOM component. Remember the split() method on a string? That will be helpful.
+
+// This is an example how one of your card components might look once it's in the DOM:
+
+// <article class="card" id="card--1">
+//     <div>Hey, I entered some text</div>
+//     <div>
+//         <button id="delete--1">Delete This Card</button>
+//     </div>
+// </article>
